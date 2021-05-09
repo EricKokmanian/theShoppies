@@ -7,7 +7,7 @@ export default function useMovieSearch() {
   function searchByTitle(searchString) {
     setLoading(true);
 
-    fetch('http://www.omdbapi.com/?s=' + searchString + '&apikey=a8600b0b')
+    fetch('https://www.omdbapi.com/?s=' + searchString + '&apikey=a8600b0b') // might have to be 'https://...'
       .then(res => res.json())
       .then((data) => {
         setResult(data.Search);
