@@ -13,12 +13,10 @@ function ResultListItem ({
         <li>
             <div className="Movie-list-item">
                 <label>{title}</label>
-                <label> ({release})</label>
-                <label>{isNominated}</label>
-                <button onClick={() => {handleOnNominate(id)}}>Nominate</button>
+                <label>&nbsp;({release})&nbsp;</label>
+                <button disabled={isNominated} onClick={() => {handleOnNominate(id)}}>Nominate</button>
             </div>
         </li>
-        // Display Nominate or Remove using isNominated
     )
 }
 

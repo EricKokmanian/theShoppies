@@ -5,7 +5,6 @@ function NominationListItem({
     id,
     title,
     release,
-    isNominated,
     handleOnRemove
 }) {
 
@@ -13,8 +12,8 @@ function NominationListItem({
         <li>
             <div className="Nomination-list-item">
             <label>{title}</label>
-            <label> ({release})</label>
-            <button disabled={isNominated} onClick={() => handleOnRemove(id)}>Remove</button>
+            <label>&nbsp;({release})&nbsp;</label>
+            <button onClick={() => handleOnRemove(id)}>Remove</button>
         </div>
         </li>
     )

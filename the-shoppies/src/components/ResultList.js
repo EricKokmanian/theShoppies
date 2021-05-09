@@ -4,8 +4,17 @@ import '../App.css';
 
 function ResultList ({
     list,
+    nominations,
     handleOnNominate
 }) {
+
+    function checkIfNominated (movieId) {
+        if (nominations.length > 0) 
+            return nominations.find(movie => movie.imdbID === movieId) !== undefined;
+        else
+            return false;
+    };
+
     const listContent = list?.length > 0 ? 
         list.map(item => 
             <ResultListItem
@@ -13,8 +22,10 @@ function ResultList ({
                 id={item.imdbID}
                 title={item.Title} 
                 release={item.Year}
+                isNominated={checkIfNominated(item.imdbID)}
                 handleOnNominate={() => handleOnNominate(item.imdbID)} />
-        ) : null;
+        ) : null
+    ;
 
     return (
         <ul>

@@ -16,11 +16,19 @@ export default function NominationList ({
                 release={item.Year} 
                 isNominated={item.isNominated}
                 handleOnRemove={() => handleOnRemove(item.imdbID)}/>
-        ) : null;
+        ) : null
+    ;
+
+    const nominationLimit = nominations?.length === 5 ?
+            <i className="Limit-reached">Maximum number of nominations (5) has been reached!</i> : null
+    ;
     
     return (
-        <ul>
-            {nominationListContent}
-        </ul>
+        <>
+            {nominationLimit}
+            <ul>
+                {nominationListContent}
+            </ul>
+        </>
     );
 }
