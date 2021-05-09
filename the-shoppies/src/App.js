@@ -28,7 +28,10 @@ export default function App () {
   };
 
   function handleOnNominate (movieId) {
-    setNominations(nominations => [...nominations, moviesList.find(movie => movie.imdbID === movieId)]);
+    if (nominations.length < 5)
+      setNominations(nominations => [...nominations, moviesList.find(movie => movie.imdbID === movieId)]);
+    else
+      alert('Sorry, reached the maximum number of nominations !');
   };
 
   return (
